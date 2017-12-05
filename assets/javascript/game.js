@@ -21,14 +21,8 @@ if (guess > 0) {
     }
     document.getElementById("hangman").innerHTML = blanks.join("");
     document.getElementById("guessNumber").innerHTML = guess;
-    console.log(word);
-    console.log(wordArray);
-    console.log(numLetters);
-    console.log(blanks);
-    console.log(wrongs);
     document.onkeypress = function(event) {
         if (event.keyCode > 96 && event.keyCode < 123) {
-            console.log(event);
             var letter = event.key;
             //check if the letter is in the word
             if (wordArray.indexOf(letter) === -1) {
@@ -36,9 +30,7 @@ if (guess > 0) {
                 if (wrongs.indexOf(letter) === -1) {
                     //if letter isn't in word and not already guessed, display in the letters already guessed section
                     wrongs.push(letter);
-                    console.log(wrongs);
                     guess = guess - 1;
-                    console.log(guess);
                     document.getElementById("guessLetter").innerHTML = wrongs.join("");
                     document.getElementById("guessNumber").innerHTML = guess;
                 }
@@ -48,7 +40,6 @@ if (guess > 0) {
                 for (j = 0; j < word.length; j++) {
                     if (letter === word[j]) {
                         blanks[j] = letter;
-                        console.log(blanks);
                         document.getElementById("hangman").innerHTML = blanks.join("");
                         document.getElementById("guessNumber").innerHTML = guess;
                     }
@@ -63,6 +54,6 @@ if (guess > 0) {
         }
     }
 } else {
-    document.getElementById("winNumber").innerHTML = `${wins}`;
+    document.getElementById("winNumber").innerHTML = `LOST`;
     guess = 12;
 }
