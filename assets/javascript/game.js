@@ -40,16 +40,16 @@ console.log(wrongs);
 
 
 		//check if the letter is in the word
-		if (wordArray.indexOf(event.key) === "-1"){
+		if (wordArray.indexOf(letter) === -1){
 
 		//if not, display in the letters already guessed section
 		//document.getElementByID("game").innerHTML = ' <h6> Letters already guessed: ${wrongs} '
 			wrongs.push(letter);
 			console.log(wrongs);
-			guess --;
+			guess = guess-1;
 			console.log(guess);
 
-			document.getElementByID("guessLetter").innerHTML = wrongs.join("");
+			document.getElementById("guessLetter").innerHTML = wrongs.join("");
 			document.getElementById("guessNumber").innerHTML = guess;
 			//if the letter is already in wrongs, don't add to wrongs or reduce guesses
 
@@ -62,8 +62,15 @@ console.log(wrongs);
 			for (j=0; j < word.length; j++){
 				if (letter === word[j]) {
 					blanks[j] = letter;
+					
+					if (blanks.indexOf(letter) > -1) {
+					 
+					} else {
+						guess = guess - 1;
+					}
 					console.log(blanks);
 					document.getElementById("hangman").innerHTML = blanks.join("");
+					document.getElementById("guessNumber").innerHTML = guess;
 				}
 			}
 
