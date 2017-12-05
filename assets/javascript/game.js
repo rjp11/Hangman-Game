@@ -8,7 +8,7 @@ var dash = "-";
 //set an if loop based on number of guesses remaining
 if (guess > 0) {
     //provide a list of hangman words to be guessed
-    var allWords = ["ryan", "jon", "parks", "katie", "nicole", "johnson"];
+    var allWords = ["ryan", "parks", "katie", "johnson"];
     //utilize random number generator to select one of the words
     var word = allWords[Math.floor(Math.random() * allWords.length)];
     //split the chosen hangman word into an array of letters
@@ -35,7 +35,7 @@ if (guess > 0) {
                     document.getElementById("guessNumber").innerHTML = guess;
                 }
             }
-            //replace the blank with the correct letter guessed
+            //if the letter is in the word, replace the blank with the correct letter guessed
             else {
                 for (j = 0; j < word.length; j++) {
                     if (letter === word[j]) {
@@ -53,7 +53,6 @@ if (guess > 0) {
             blanks = [];
         }
     }
-} else {
-    document.getElementById("winNumber").innerHTML = `LOST`;
+} else if (guess === 0) {
     guess = 12;
 }
