@@ -51,7 +51,7 @@ function reset() {
     blanks = [];
     //added to pull up keyboard on mobile version
     if (!/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
-    element.focus();
+    document.focus();
     }
 
     document.getElementById("guessLetter").innerHTML = "";
