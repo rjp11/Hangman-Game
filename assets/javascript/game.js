@@ -5,23 +5,52 @@ var letters = [];
 var blanks = [];
 var wrongs = [];
 var dash = "-";
+var allWords = ["kerfuffle",
+    "hullaballoo",
+    "cacophony",
+    "ragamuffin",
+    "whippersnapper",
+    "gobbledygook",
+    "gibberish",
+    "poppycock",
+    "discombobulate",
+    "flummox",
+    "curmudgeon",
+    "lackadaisical",
+    "woebegone",
+    "lollygag",
+    "frankenfood",
+    "cattywampus",
+    "dipthong",
+    "nincompoop",
+    "malarkey",
+    "buzz",
+    "jazz",
+    "jinx"
+];
+var word;
+var wordArray;
 //set an if loop based on number of guesses remaining
-if (guess > 0) {
-    //provide a list of hangman words to be guessed
-    var allWords = ["ryan", "parks", "katie", "johnson"];
+
+//provide a list of hangman words to be guessed
+function reset() {
+    letters = [];
+    wrongs = [];
+    blanks = [];
+    document.getElementById("guessLetter").innerHTML = "";
     //utilize random number generator to select one of the words
-    var word = allWords[Math.floor(Math.random() * allWords.length)];
+    word = allWords[Math.floor(Math.random() * allWords.length)];
     //split the chosen hangman word into an array of letters
-    var wordArray = word.split("");
-    //set a variable for the number of letters in the chosen hangman word
-    var numLetters = wordArray.length;
+    wordArray = word.split("");
     //for loop to push "-"" into the blanks array until the length matches the length of variable word
-    for (i = 0; i < numLetters; i++) {
+    for (i = 0; i < wordArray.length; i++) {
         blanks.push(dash);
     }
     document.getElementById("hangman").innerHTML = blanks.join("");
     document.getElementById("guessNumber").innerHTML = guess;
-    document.onkeypress = function(event) {
+};
+document.onkeypress = function(event) {
+    if (guess > 0) {
         if (event.keyCode > 96 && event.keyCode < 123) {
             var letter = event.key;
             //check if the letter is in the word
@@ -52,7 +81,10 @@ if (guess > 0) {
             guess = 0;
             blanks = [];
         }
+    } else {
+        guess = 12;
+        reset();
+
     }
-} else if (guess === 0) {
-    guess = 12;
-}
+};
+reset();
