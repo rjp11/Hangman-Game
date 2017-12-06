@@ -49,11 +49,6 @@ function reset() {
     letters = [];
     wrongs = [];
     blanks = [];
-    //added to pull up keyboard on mobile version
-    if (!/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
-    document.focus();
-    }
-
     document.getElementById("guessLetter").innerHTML = "";
     //utilize random number generator to select one of the words
     word = allWords[Math.floor(Math.random() * allWords.length)];
