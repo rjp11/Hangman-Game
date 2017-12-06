@@ -24,9 +24,21 @@ var allWords = ["kerfuffle",
     "dipthong",
     "nincompoop",
     "malarkey",
+    "numbskull",
+    // and some tough hangman words, just for fun.
     "buzz",
     "jazz",
-    "jinx"
+    "jinx",
+    "wavy",
+    "zigzag",
+    "voodoo",
+    "klutz",
+    "haphazard",
+    "stymied",
+    "gnarly",
+    "crypt",
+    "blitz",
+    "xylophone"
 ];
 var word;
 var wordArray;
