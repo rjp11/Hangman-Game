@@ -95,6 +95,7 @@ document.onkeypress = function(event) {
         }
     } else {
         guess = 12;
+        alert("the word was: " + word + ". try again!");
         reset();
 
     }
